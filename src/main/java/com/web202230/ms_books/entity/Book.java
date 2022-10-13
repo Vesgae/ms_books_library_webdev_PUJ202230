@@ -3,7 +3,7 @@ package com.web202230.ms_books.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name="Books")
+@Table(name="libros")
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
