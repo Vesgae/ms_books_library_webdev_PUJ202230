@@ -15,7 +15,13 @@ public class Book {
     private int fecha_edicion;
     private int cantidad;
 
-    public Book(String nombre, String editorial, String portada, String prologo, int fecha_edicion, int cantidad) {
+    public Book(){
+        
+    }
+
+    public Book(Long id, String nombre, String editorial, String portada, String prologo, int fecha_edicion,
+            int cantidad) {
+        this.id = id;
         this.nombre = nombre;
         this.editorial = editorial;
         this.portada = portada;
@@ -23,58 +29,50 @@ public class Book {
         this.fecha_edicion = fecha_edicion;
         this.cantidad = cantidad;
     }
-
-    public Book() {
+    public Long getId() {
+        return id;
     }
-
+    public void setId(Long id) {
+        this.id = id;
+    }
     public String getNombre() {
         return nombre;
     }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
     public String getEditorial() {
         return editorial;
     }
-
     public void setEditorial(String editorial) {
         this.editorial = editorial;
     }
-
     public String getPortada() {
         return portada;
     }
-
     public void setPortada(String portada) {
         this.portada = portada;
     }
-
     public String getPrologo() {
         return prologo;
     }
-
     public void setPrologo(String prologo) {
         this.prologo = prologo;
     }
-
     public int getFecha_edicion() {
         return fecha_edicion;
     }
-
     public void setFecha_edicion(int fecha_edicion) {
         this.fecha_edicion = fecha_edicion;
     }
-
     public int getCantidad() {
         return cantidad;
     }
-
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
 
+        
     
 
     

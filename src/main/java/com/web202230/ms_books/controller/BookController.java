@@ -20,6 +20,4 @@ public class BookController {
         List<Book> Books = bookService.getBooks();
         return new ResponseEntity<List<Book>>(Books, HttpStatus.OK);
     }
-
-    
 }
