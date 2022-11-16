@@ -3,76 +3,89 @@ package com.web202230.ms_books.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name="libros")
+@Table(name="books")
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nombre;
+    private String title;
     private String editorial;
-    private String portada;
-    private String prologo;
-    private int fecha_edicion;
-    private int cantidad;
+    private String cover_url;
+    private String description;
+    private int publication_year;
+    private int volume;
 
     public Book(){
-        
+
     }
 
-    public Book(Long id, String nombre, String editorial, String portada, String prologo, int fecha_edicion,
-            int cantidad) {
+    public Book(Long id, String title, String editorial, String cover_url, String description, int publication_year, int volume){
         this.id = id;
-        this.nombre = nombre;
+        this.title = title;
         this.editorial = editorial;
-        this.portada = portada;
-        this.prologo = prologo;
-        this.fecha_edicion = fecha_edicion;
-        this.cantidad = cantidad;
+        this.cover_url = cover_url;
+        this.description = description;
+        this.publication_year = publication_year;
+        this.volume = volume;
     }
+
     public Long getId() {
-        return id;
+        return this.id;
     }
+
     public void setId(Long id) {
         this.id = id;
     }
-    public String getNombre() {
-        return nombre;
+
+    public String getTitle() {
+        return this.title;
     }
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+
+    public void setTitle(String title) {
+        this.title = title;
     }
+
     public String getEditorial() {
-        return editorial;
+        return this.editorial;
     }
+
     public void setEditorial(String editorial) {
         this.editorial = editorial;
     }
-    public String getPortada() {
-        return portada;
-    }
-    public void setPortada(String portada) {
-        this.portada = portada;
-    }
-    public String getPrologo() {
-        return prologo;
-    }
-    public void setPrologo(String prologo) {
-        this.prologo = prologo;
-    }
-    public int getFecha_edicion() {
-        return fecha_edicion;
-    }
-    public void setFecha_edicion(int fecha_edicion) {
-        this.fecha_edicion = fecha_edicion;
-    }
-    public int getCantidad() {
-        return cantidad;
-    }
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
+
+    public String getCover_url() {
+        return this.cover_url;
     }
 
-        
+    public void setCover_url(String cover_url) {
+        this.cover_url = cover_url;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getPublication_year() {
+        return this.publication_year;
+    }
+
+    public void setPublication_year(int publication_year) {
+        this.publication_year = publication_year;
+    }
+
+    public int getVolume() {
+        return this.volume;
+    }
+
+    public void setVolume(int volume) {
+        this.volume = volume;
+    }
+
+
     
 
     
