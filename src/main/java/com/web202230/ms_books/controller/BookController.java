@@ -10,6 +10,8 @@ import com.web202230.ms_books.entity.Book;
 import com.web202230.ms_books.service.BookService;
 
 @RestController
+@RequestMapping("")
+@CrossOrigin
 public class BookController {
     @Autowired
     private BookService bookService;
@@ -21,16 +23,35 @@ public class BookController {
         return new ResponseEntity<List<Book>>(Books, HttpStatus.OK);
     }
 
-    @GetMapping("/getbooksByEditorial/{editorial}")
+
+    @GetMapping("/getbooksByEditorial/{editorial}/")
     @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<List<Book>> getBooksByEditorial(@PathVariable String editorial){
-        List<Book> Books = bookService.getBooks();
-        List<Book> newBooks=Books;
-        for (Book b : newBooks) {
-            if(!b.getEditorial().equals(editorial)){
-                newBooks.remove(b);
-            }
-        }
-        return new ResponseEntity<List<Book>>(newBooks, HttpStatus.OK);
+                return new ResponseEntity<List<Book>>(getListBookByEditorial(editorial), HttpStatus.OK);
     }
+
+ 
+    private List<Book> getAllBooks() {
+        return bookService.getBooks();
+    }
+
+    private List<Book> getListBookByEditorial(String editorial) {
+        List<Book> books = getAllBooks();
+        List<Book> newbooks = books;
+        for(Book book: newbooks){
+            if(!book.getEditorial().equals(editorial))
+                newbooks.remove(book);
+        }
+        return newbooks;
+    }
+/* 
+    private Long getBookId(String email){
+        List<User> users = getAllUsers();
+        for(User user: users){
+            if(user.getEmail().equals(email))
+                return (long) users.indexOf(user);
+        }
+        return (long) -1;
+
+    } */
 }
